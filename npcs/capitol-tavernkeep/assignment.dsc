@@ -33,12 +33,7 @@ cc_npc_capitoltavernkeep_wellknown_p:
     type: procedure
     definitions: __player
     script:
-        - if <player.has_flag[known_capitolfarmer]> == false:
-            - determine 0
-        - if <player.has_flag[known_capitollumberer]> == false:
-            - determine 0
-        - if <player.has_flag[known_capitolmason]> == false:
-            - determine 0
-        - if <player.has_flag[known_capitolsmith]> == false:
+        - define known <proc[cc_npc_get_knownlist]>
+        - if <[known].size.is[less].than[4]>:
             - determine 0
         - determine 1
