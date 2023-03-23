@@ -45,7 +45,7 @@ cc_npc_set_known:
     definitions: __player|npc_name
     script:
         - define known <proc[cc_npc_get_knownlist].context[<player>]>
-        - if <[known].contains[<[npc_name]>]> == false:
+        - if !<[known].contains[<[npc_name]>]>:
             - define known:->:<[npc_name]>
             - flag <player> npcs_known:<[known]>
 
@@ -75,7 +75,7 @@ cc_npc_set_soldto:
     definitions: __player|npc_name
     script:
         - define soldto <proc[cc_npc_get_soldtolist].context[<player>]>
-        - if <[soldto].contains[<[npc_name]>]> == false:
+        - if !<[soldto].contains[<[npc_name]>]>:
             - define soldto <[soldto].include[<[npc_name]>=1;]>
         - else:
             - define numSales <[soldto].get[<[npc_name]>]>

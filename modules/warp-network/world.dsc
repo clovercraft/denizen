@@ -45,10 +45,10 @@ cc_anchorstone_pulse_t:
         - foreach <server.online_players> as:__player:
             - define anchor_stone <player.location.find_entities[armor_stand].within[250].filter[custom_name.contains[anchorBlock]]>
             - if <[anchor_stone].size||0> >= 1:
-                - if <player.has_permission[essentials.warps.*]> == false:
+                - if !<player.has_permission[essentials.warps.*]>:
                     - narrate "You are now within range of a warp point!"
                     - permission add 'essentials.warps.*'
             - else:
-                - if <player.has_permission[essentials.warps.*]> && <player.has_flag[warpglyph]> == false:
+                - if <player.has_permission[essentials.warps.*]> && !<player.has_flag[warpglyph]>:
                     - narrate "You are now out of range range of the warp network"
                     - permission remove 'essentials.warps.*'
