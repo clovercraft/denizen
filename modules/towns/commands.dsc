@@ -1,5 +1,6 @@
 cc_towns_showobjective_c:
     type: command
+    description: Shows the settlement objectives. Read this to learn about how to unlock bonuses for the members of your settlement.
     name: objectives
     usage: /objectives
     script:
@@ -7,6 +8,7 @@ cc_towns_showobjective_c:
 
 cc_towns_settlements_c:
     type: command
+    description: Lists the settlements on the server.
     name: list-settlements
     usage: /list-settlements
     script:
@@ -19,6 +21,7 @@ cc_towns_settlements_c:
 
 cc_towns_create_c:
     type: command
+    description: Creates a new named settlement.
     name: create-settlement
     usage: /create-settlement <&lt>name<&gt>
     script:
@@ -34,6 +37,7 @@ cc_towns_create_c:
 
 cc_towns_join_c:
     type: command
+    description: Join an existing settlement by name.
     name: join-settlement
     usage: /join-settlement <&lt>id<&gt>
     script:
@@ -49,6 +53,7 @@ cc_towns_join_c:
 
 cc_towns_settlement_members_c:
     type: command
+    description: Lists the members in a settlement.
     name: settlement-members
     usage: /settlement-members <&lt>id<&gt>
     script:
@@ -65,6 +70,7 @@ cc_towns_settlement_members_c:
 
 cc_towns_glyphs_c:
     type: command
+    description: Gives the player 16 warp glyphs once every 24 hours.
     name: warp-glyphs
     usage: /warp-glyphs
     permission: clovercraft.settlement.township

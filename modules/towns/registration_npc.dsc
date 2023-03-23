@@ -52,6 +52,7 @@ cc_towns_registrar_setup_t:
 
 cc_towns_setup_c:
     type: command
+    description: Initializes the settlements flag in Denizen.
     name: setupsettlements
     usage: /setupsettlements
     permission: group.admin
@@ -61,6 +62,7 @@ cc_towns_setup_c:
 
 cc_towns_joinsettlement_c:
     type: command
+    description: Joins a settlement. You can only be in one at a time but switching is free.
     name: joinsettlement
     usage: /joinsettlement <&lt>settlement_id<&gt>
     script:
