@@ -98,6 +98,6 @@ cc_towns_joinsettlement_t:
             - define civilization <map[civilization].with[member_count].as[<[member_count]>]>
             - flag <server> settlements.<[settlement]>:<[civilization]>
             - define display_name <map[civilization].get[display_name]>
-            - narrate "You have joined the <[displayname]> settlement."
+            - narrate "You have joined the <[display_name]> settlement."
         - else:
             - narrate "It looks like that settlement doesn't exist. You can use the <yellow>/objectives<reset> command to learn more about founding a settlement."
