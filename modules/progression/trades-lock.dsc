@@ -4,7 +4,7 @@ cc_progression_trades_lock_w:
     events:
         on player fishes entity:
             - define item <context.item>
-            - if <[item].enchantment_types.size> > 0 && <player.has_flag[enchanting_enabled]> == false:
+            - if (!<player.has_flag[enchanting_enabled]>) && (<[item].enchantment_types.size> > 0):
                 - determine "CAUGHT:<item[salmon]>"
 
 cc_progression_trades_lock_t:
