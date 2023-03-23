@@ -11,7 +11,7 @@ cc_util_calc_price:
 
 cc_util_calc_max:
     type: procedure
-    definition: item|max
+    definitions: item|max
     script:
         - define qty <player.inventory.quantity_item[<[item]>]>
         - if <[qty]> > <[max]>:

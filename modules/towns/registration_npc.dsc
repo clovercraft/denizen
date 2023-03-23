@@ -52,15 +52,17 @@ cc_towns_registrar_setup_t:
 
 cc_towns_setup_c:
     type: command
+    description: Initializes the settlements flag in Denizen.
     name: setupsettlements
     usage: /setupsettlements
     permission: group.admin
     script:
-        - if <server.has_flag[settlements]> == false:
+        - if !<server.has_flag[settlements]>:
             - flag <server> settlements:<map.with[index].as[0]>
 
 cc_towns_joinsettlement_c:
     type: command
+    description: Joins a settlement. You can only be in one at a time but switching is free.
     name: joinsettlement
     usage: /joinsettlement <&lt>settlement_id<&gt>
     script:
@@ -96,6 +98,6 @@ cc_towns_joinsettlement_t:
             - define civilization <map[civilization].with[member_count].as[<[member_count]>]>
             - flag <server> settlements.<[settlement]>:<[civilization]>
             - define display_name <map[civilization].get[display_name]>
-            - narrate "You have joined the <[displayname]> settlement."
+            - narrate "You have joined the <[display_name]> settlement."
         - else:
             - narrate "It looks like that settlement doesn't exist. You can use the <yellow>/objectives<reset> command to learn more about founding a settlement."

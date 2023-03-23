@@ -14,11 +14,9 @@ cc_npc_capitoltavernkeep_i:
                 script:
                     - clickable cc_npc_capitoltavernkeep_quest_give_t save:click_quest
                     - define well_known <proc[cc_npc_capitoltavernkeep_wellknown_p].context[<player>]>
-                    - if <[well_known]> == 1 && <player.has_flag[capitoltavernkeep_quest_greetings]> == false:
+                    - if (<[well_known]> == 1) && !<player.has_flag[capitoltavernkeep_quest_greetings]>:
                         - narrate "Hey there, <player.display_name>! I've heard good things about you from the other folks in town. Here, I've got some gear to get you started on your journies."
                         - run cc_npc_capitoltavernkeep_quest_handin_t
-                    - else if <[well_known]> == 1 && <player.has_flag[msq_enchanting_status]>:
-                        - run cc_npc_capitoltavernkeep_quest_msq_enchanting_t
                     - else if <player.has_flag[capitoltavernkeep_quest_greetings]>:
                         - narrate "Hey there <player.display_name>, good to see you today!"
                     - else if <player.has_flag[known_capitoltavernkeep]>:

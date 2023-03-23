@@ -13,7 +13,7 @@ cc_msq1_start:
         - clickable save:click_no:
             - narrate "Alright. Let me know if you change your mind."
         - narrate "<green><element[Yes].on_click[<entry[click_yes].command>]><reset> | <red><element[No].on_click[<entry[click_no].command>]><reset>"
-        
+
 cc_msq1_donate:
     type: task
     script:
@@ -45,7 +45,7 @@ cc_msq1_take_enchanted:
         - define reward 100
         - define reward:*:<[item_count]>
         - money give quantity:<[reward]> players:<player>
-        - if <player.has_flag[msq1_donated]> == false:
+        - if !<player.has_flag[msq1_donated]>:
             - flag <player> msq1_donated:1
             - flag <server> msq1_participants:++
         - flag <server> msq1_donations:+:<[item_count]>
@@ -71,9 +71,9 @@ cc_msq1_counts:
 cc_msq1_flags_setup:
     type: task
     script:
-        - if <server.has_flag[msq1_participants]> == false:
+        - if !<server.has_flag[msq1_participants]>:
             - flag <server> msq1_participants:0
-        - if <server.has_flag[msq1_donations]> == false:
+        - if !<server.has_flag[msq1_donations]>:
             - flag <server> msq1_donations:0
 
 cc_msq1_enchanted_check:

@@ -17,7 +17,7 @@ cc_towns_objective_founded_i:
         -   <gray>Use the <yellow>/create-settlement <&lt>name<&gt><gray> command to create a settlement.
         -   <gray>You must have at least three active players as citizens of your settlement to qualify.
         -   <gray>Other players can join your settlement by using the <yellow>/join-settlement<gray> command.
-        -   <gray>If your settlement name contains spaces, remember to use quotations. i.e. <yellow>/create-settlement "New Corsica"<gray>
+        -   <gray>If your settlement name contains spaces, remember to use quotations. i.e. <yellow>/create-settlement <&dq>New Corsica<&dq><gray>
         - <green>Reward
         -   <gray>+1 Warp Network Anchorstone
         -   <gray>+5 Civilization Points
