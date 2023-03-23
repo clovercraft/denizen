@@ -32,7 +32,7 @@ cc_msq2_handin:
         - narrate "Great, looks like you've got everything. So thos items you brought me? The strange purple glow, the weird powers? They were enchanted. Imbued with magical energy to enhance them."
         - narrate "I can teach you how to do it yourself, so you can make your gear even better."
         - narrate "<green><element[Okay].on_click[<entry[click_yes].command>]><reset> | <red><element[Not now].on_click[<entry[click_no].command>]><reset>"
-            
+
 
 cc_msq2_items_check:
     type: procedure

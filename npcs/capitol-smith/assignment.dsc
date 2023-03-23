@@ -20,7 +20,7 @@ cc_npc_capitolsmith_i:
                         - else:
                             - narrate "I'm blasting through fuels with all these requisitions coming in from the state. Bring me coal or quality charcoal, and I'll make it worth your while."
                     - narrate "Work or Trade? <blue><element[Work].on_click[<entry[click_work].command>]><reset>"
-        
+
 
 cc_npc_capitolsmith_sellcoal_t:
     type: task

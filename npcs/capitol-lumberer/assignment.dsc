@@ -25,7 +25,7 @@ cc_npc_capitollumber_i:
                         - stop
                     - narrate "Hey, pal. What can I do for you?"
                     - narrate "<blue><element[Work Opportunities].on_click[<entry[click_work].command>]><reset> | <blue><element[About Wyatt].on_click[<entry[click_about].command>]><reset>"
-        
+
 
 cc_npc_capitollumber_buy_t:
     type: task

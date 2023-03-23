@@ -13,7 +13,7 @@ cc_msq1_start:
         - clickable save:click_no:
             - narrate "Alright. Let me know if you change your mind."
         - narrate "<green><element[Yes].on_click[<entry[click_yes].command>]><reset> | <red><element[No].on_click[<entry[click_no].command>]><reset>"
-        
+
 cc_msq1_donate:
     type: task
     script:

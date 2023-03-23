@@ -16,7 +16,6 @@ cc_snowball_w:
                 - kill <context.hit_entity>
             - else if <context.hit_entity.flag[snowball_hits]> > <[current_hits]>:
                 - narrate "You've been hit! <context.hit_entity.flag[snowball_hits]> of 3"
-        
 
 cc_snowball_join_c:
     type: command
