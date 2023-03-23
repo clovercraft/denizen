@@ -58,7 +58,7 @@ cc_towns_setup_c:
     permission: group.admin
     script:
         - if !<server.has_flag[settlements]>:
-            - flag server settlements:<map.with[index].as[0]>
+            - flag <server> settlements:<map.with[index].as[0]>
 
 cc_towns_joinsettlement_c:
     type: command
