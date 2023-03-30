@@ -29,6 +29,11 @@ cc_towns_create_c:
             - narrate "<red>Sorry, you need to specify a name for your settlement."
             - narrate "Usage: <yellow>/create-settlement <&lt>name<&gt><reset>"
             - stop
+        - define charset abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_
+        - if !<context.args.get[1].matches_character_set[<[charset]>]>:
+            - narrate "<red>Sorry, the settlement name can only contain letters, numbers, dashes (-), and underscores (_)."
+            - narrate "Usage: <yellow>/create-settlement <&lt>name<&gt><reset>"
+            - stop
         - ~webget https://clovercraft.gg/api/settlements/create?denizenkey=mydenizensecret&uuid=<player.uuid>&name=<context.args.get[1]> save:created
         - if <entry[created].status> == 200:
             - ~yaml loadtext:<entry[created].result> id:created
