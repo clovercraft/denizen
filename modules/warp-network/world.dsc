@@ -9,7 +9,10 @@ custom_blocks_handler_events:
         on delta time secondly every:5:
             - run cc_anchorstone_pulse_t
         on player right clicks block with:warp_glyph:
-            - run cc_anchorstone_glyph_use
+            - define target <context.location.material.name.if_null[air]>
+            - define interactable <proc[cc_is_interactable].context[<[target]>]>
+            - if !<[interactable]>:
+                - run cc_anchorstone_glyph_use
         on warp command:
             - run cc_anchorstone_glyph_clear
 
