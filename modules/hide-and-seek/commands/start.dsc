@@ -5,7 +5,7 @@ cc_hide_seek_start:
         - if <server.has_flag[hs_running]>:
             - narrate "<red>A match is already in progress.<reset>"
             - stop
-        - if <server.online_players_flagged[hs_active].size> < 1:
+        - if <server.online_players_flagged[hs_active].size> < 2:
             - narrate "<red>There are not enough players to start a match.<reset>"
             - stop
         - define hs_players <server.online_players_flagged[hs_active]>
