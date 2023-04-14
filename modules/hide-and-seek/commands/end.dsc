@@ -4,6 +4,7 @@ cc_hide_seek_end_no_check:
     script:
         - flag server hs_vote_end:!
         - flag server hs_running:!
+        - narrate "<red>The match has ended, thanks for playing!<reset>" targets:<server.online_players_flagged[hs_active]>
         - foreach <server.players_flagged[hs_active]> as:hs_player:
             - flag <[hs_player]> hs_active:!
         - foreach <server.players_flagged[hs_hidden]> as:hs_player:
