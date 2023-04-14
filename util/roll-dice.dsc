@@ -34,5 +34,5 @@ roll:
         - define total <[total].add[<util.random.int[1].to[<[sides]>]>]>
     - define total <[total].add[<[modifier]>]>
     - narrate "<yellow><[roll]> = <[total]><reset>"
-    - debug log "<player> rolled: <[roll]> = <[total]>"
+    - debug log "<player.display_name> rolled: <[roll]> = <[total]>"
     - stop
