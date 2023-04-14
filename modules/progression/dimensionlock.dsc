@@ -3,6 +3,8 @@ cc_progression_netherlock_w:
     debug: false
     events:
         on player enters portal:
+            - if !<context.entity.is_player>:
+                - stop
             - if !<player.has_flag[nether_enabled]>:
                 - narrate "<gray><italic>As you touch the portal, you become confused. Perhaps Avery can explain what's going on here."
                 - teleport <player> <player.location.sub[1,0,0]>
