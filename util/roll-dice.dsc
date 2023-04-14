@@ -8,6 +8,8 @@ roll:
     - dice
     - rolldice
     - diceroll
+    tab completions:
+        1: 1d20|1d6|1d4|1d8|1d10|1d12|1d100
     script:
     - if <context.args.size> < 1:
         - narrate "<red>Sorry, you need to specify a die roll."
@@ -29,7 +31,8 @@ roll:
 
     - define total 0
     - repeat <[dice]>:
-         - define total <[total].add[<util.random.int[1].to[<[sides]>]>]>
+        - define total <[total].add[<util.random.int[1].to[<[sides]>]>]>
     - define total <[total].add[<[modifier]>]>
     - narrate "<yellow><[roll]> = <[total]><reset>"
+    - debug log "<player.display_name> rolled: <[roll]> = <[total]>"
     - stop
