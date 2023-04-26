@@ -52,7 +52,7 @@ cc_msq3_start:
             - flag <player> msq3_state:accepted
             - flag <player> msq3_searching:0
             - narrate "Great! I've got a field journal here you can use to record your findings. The first structure I'd like you to look into is at <yellow>-1865, 1000<reset>. There should be good samples of the <yellow>strange bloody stone<reset> there. I'll find some more places for you to investigate while you travel."
-            - give <player> cc_msq3_field_journal
+            - give cc_msq3_field_journal
 	    - wait 3s
 	    - narrate "<dark_green>Travel to locations provided by Avery, then left-click on the block they ask about to log it in your journal."
         - clickable usages:1 save:click_no:
@@ -121,7 +121,7 @@ cc_msq3_updatebook:
         - define pages <[newBook].book_pages>
         - define pages:->:<element[A new page]>
         - adjust def:newBook book_pages:<[pages]>
-        - give <player> <[newBook]>
+        - give <[newBook]>
 
 cc_msq3_atlocation:
     type: procedure

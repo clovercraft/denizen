@@ -38,7 +38,7 @@ cc_anchorstone_place_t:
     definitions: location
     script:
         - wait 1t
-        - spawn armor_stand[custom_name=anchorBlock;equipment=air|air|air|<player.item_in_hand.script.name>;gravity=false;visible=false] <[location].center.below[1.86]>
+        - spawn armor_stand[custom_name=anchorBlock;equipment=air|air|air|warp_anchorstone;gravity=false;visible=false] <[location].center.below[1.86]>
         - modifyblock <[location]> end_rod
 
 cc_anchorstone_pulse_t:
