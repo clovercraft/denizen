@@ -36,26 +36,59 @@ cc_hide_seek_start:
         - wait 1s
         - define title_text "<aqua>Match Start!<reset>"
         - playsound <[hs_players]> sound:item_goat_horn_sound_0 pitch:0.9 sound_category:master
+        - flag server hs_match_start expire:12h
         - title title:<[title_text]> targets:<[hs_players]> fade_in:0s
         - wait 3s
         # Give players two minutes to hide.
         # 120 seconds = 6s darkness + 84s blindness + 30s warning
+
         - define title_text "<aqua>Players have 2 minutes to hide!<reset>"
         - narrate <[title_text]> targets:<[hs_players]>
         - title title:<gold>Seek!<reset> subtitle:<[title_text]> targets:<[hs_seeker]>
         - foreach <[hs_hiders]> as:hs_hider:
             - title title:<aqua>Hide!<reset> subtitle:<[title_text]> targets:<[hs_hider]>
-        - cast darkness duration:10s <[hs_seeker]>
-        - wait 6s
-        # - wait 1s
-        - cast blindness duration:120s <[hs_seeker]>
-        - wait 84s
-        # - wait 1s
-        - define title_text "<gold>30 seconds left!<reset>"
-        - narrate <[title_text]> targets:<[hs_players]>
-        - title subtitle:<[title_text]> targets:<[hs_players]>
-        - wait 30s
-        # - wait 5s
+        - foreach <script[cc_hide_seek_config].data_key[game_hide_sequence]> as:line:
+            - define command <[line].split[<&co>]>
+            - if <[command].size> >= 2:
+                - define target <[command].get[2]>
+                - choose <[target]>:
+                    - case seekers:
+                        - define target <[hs_seeker]>
+                    - case hiders:
+                        - define target <[hs_hiders]>
+                    - case players:
+                        - define target <[hs_players]>
+            - define data <[command].get[1]>
+            - define command <[command].get[0]>
+            - choose <[command]>:
+                - case wait:
+                    - wait <[data]>
+                - case darkness:
+                    - cast darkness duration:<[data]> <[target]>
+                - case blindness:
+                    - cast blindness duration:<[data]> <[target]>
+                - case playsound:
+                    - playsound <[target]> sound:<[data]> sound_category:master
+                - case narrate:
+                    - narrate <[data].parsed> targets:<[target]>
+                - case subtitle:
+                    - title subtitle:<[data]> targets:<[target]>
+                - case title:
+                    - title title:<[data]> targets:<[target]>
+                - case title_subtitle:
+                    - title title:<[data]> subtitle:<[data]> targets:<[target]>
+                - case warning:
+                    - define title_text "<gold><[data].before[]> seconds left!<reset>"
+                    - narrate <[title_text]> targets:<[hs_players]>
+                    - title subtitle:<[title_text]> targets:<[hs_players]>
+                    - wait <[data]>
+        # - cast darkness duration:10s <[hs_seeker]>
+        # - wait 6s
+        # # - wait 1s
+        # - cast blindness duration:120s <[hs_seeker]>
+        # - wait 84s
+        # # - wait 1s
+        # # - wait 5s
         - playsound <[hs_players]> sound:entity_warden_tendril_clicks pitch:0.1 sound_category:master
         - narrate "<red>The hunt is on!<reset>" targets:<[hs_players]>
         - narrate "<light_purple>Hiders<aqua>, be sure you're hidden!<reset>" targets:<[hs_hiders]>
