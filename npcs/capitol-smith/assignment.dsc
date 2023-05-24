@@ -29,7 +29,10 @@ cc_npc_capitolsmith_sellcoal_t:
             - narrate "Sorry friend, I can only buy from you once per day."
             - stop
         - flag <player> capitolsmith_cooldown:true expire:20m
-        - define sale_items <list[<map[id=coal;name=Coal;price=1;max=128]>].include_single[<map[id=charcoal;name=Charcoal;price=1;max=128]>]>
-        - run cc_npc_shopkeeper_buy def:<list[<player>].include_single[<[sale_items]>]>
-        - run cc_npc_set_soldto def:<player>|capitol_smith
-        - narrate "A whole bunch of Fuel! Here's some coin for your efforts."
+        - opentrades <script[cc_npc_capitolsmith_trades].data_key[trades]> title:Agnes players:<player>
+
+cc_npc_capitolsmith_trades:
+    type: data
+    trades:
+        - trade[max_uses=8;inputs=coal[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=charcoal[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]

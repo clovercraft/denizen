@@ -33,14 +33,26 @@ cc_npc_capitollumber_buy_t:
         - if <player.has_flag[capitollumber_cooldown]>:
             - narrate "Ah, my apologies. I can only buy from you once per day."
             - stop
-        - define sale_items <list[<map[id=*_log;name=Logs;price=3;max=128]>].include_single[<map[id=*_planks;name=Planks;price=1;max=128]>]>
-        - define total <proc[cc_npc_shopkeeper_get_total].context[<list[<player>].include_single[<[sale_items]>]>]>
         - clickable save:click_yes usages:1:
             - flag <player> capitollumber_cooldown:true expire:20m
-            - run cc_npc_shopkeeper_buy def:<list[<player>].include_single[<[sale_items]>]>
-            - run cc_npc_set_soldto def:<player>|capitol_lumberer
-            - narrate "Good deal."
+            - opentrades <script[cc_npc_capitollumber_trades].data_key[trades]> title:Wyatt players:<player>
         - clickable save:click_no:
             - narrate "Agh...shame. Offer stands, though."
             - stop
-        - narrate "Are you interested in offloading that lumber? I'll buy off all the logs and planks you have. Don't want you to go uncompensated for hard work. Deal? <[total]>☺. <green><element[Yes].on_click[<entry[click_yes].command>]><reset> <gray><element[No].on_click[<entry[click_no].command>]><reset>"
+        - narrate "Are you interested in offloading that lumber? I'll buy off all the logs and planks you have. Don't want you to go uncompensated for hard work. Deal? <green><element[Yes].on_click[<entry[click_yes].command>]><reset> <gray><element[No].on_click[<entry[click_no].command>]><reset>"
+
+cc_npc_capitollumber_trades:
+    type: data
+    trades:
+        - trade[max_uses=8;inputs=oak_log[quantity=16];result=cc_trades_dubloons[quantity=48];has_xp=false]
+        - trade[max_uses=8;inputs=oak_planks[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=birch_log[quantity=16];result=cc_trades_dubloons[quantity=48];has_xp=false]
+        - trade[max_uses=8;inputs=birch_planks[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=spruce_log[quantity=16];result=cc_trades_dubloons[quantity=48];has_xp=false]
+        - trade[max_uses=8;inputs=spruce_planks[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=jungle_log[quantity=16];result=cc_trades_dubloons[quantity=48];has_xp=false]
+        - trade[max_uses=8;inputs=jungle_planks[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=acacia_log[quantity=16];result=cc_trades_dubloons[quantity=48];has_xp=false]
+        - trade[max_uses=8;inputs=acacia_planks[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=dark_oak_log[quantity=16];result=cc_trades_dubloons[quantity=48];has_xp=false]
+        - trade[max_uses=8;inputs=dark_oak_planks[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
