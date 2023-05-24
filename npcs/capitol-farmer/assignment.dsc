@@ -39,11 +39,14 @@ cc_npc_capitolfarmer_buy_t:
         - define sale_items <list[<map[id=bone_meal;name=Bone Meal;price=2;max=256]>]>
         - clickable save:click_yes usages:1:
             - flag <player> capitolfarmer_cooldown:true expire:20m
-            - run cc_npc_shopkeeper_buy def:<list[<player>].include_single[<[sale_items]>]>
-            - run cc_npc_set_soldto def:<player>|capitol_farmer
-            - narrate "Good stuff. Thank you."
+            - opentrades <script[cc_npc_capitolfarmer_trades].data_key[trades]> title:Duncan players:<player>
         - clickable save:click_no:
             - narrate "Awe, okay. That's cool."
             - stop
         - narrate "Oo! OO! Hey, I need some of that bone meal. I'll pay you for it. Take my money."
         - narrate "<green><element[Yes].on_click[<entry[click_yes].command>]><reset> <gray><element[No].on_click[<entry[click_no].command>]><reset>"
+
+cc_npc_capitolfarmer_trades:
+    type: data
+    trades:
+        - trade[max_uses=16;inputs=bone_meal[quantity=16];result=cc_trades_dubloons[quantity=32];has_xp=false]

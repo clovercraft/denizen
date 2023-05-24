@@ -32,15 +32,24 @@ cc_npc_capitolmason_buy_t:
         - if <player.has_flag[capitolmason_cooldown]>:
             - narrate "Ah, my apologies. I can only buy from you once per day."
             - stop
-        - define stone_items <map[name="Stone Variants";price=1;max=128].with[id].as[<list[stone|cobblestone|granite|diorite|andesite|sandstone|red_sandstone|smooth_basalt]>]>
-        - define deep_items <map[name="Deepslate Variants";price=3;max=128].with[id].as[<list[deepslate|cobbled_deepslate]>]>
-        - define sale_items <list[<[stone_items]>].include_single[<[deep_items]>]>
         - clickable save:click_yes usages:1:
             - flag <player> capitolmason_cooldown:true expire:20m
-            - run cc_npc_shopkeeper_buy def:<list[<player>].include_single[<[sale_items]>]>
-            - run cc_npc_set_soldto def:<player>|capitol_mason
-            - narrate "Excellent. Thank you."
+            - opentrades <script[cc_npc_capitolmason_trades].data_key[trades]> title:Arthur players:<player>
         - clickable save:click_no:
             - narrate "My mistake."
             - stop
         - narrate "Aha! Hey! Would I be mistaken to think that stone's for me? I have cash available for you if you're looking to sell it. <green><element[Yes].on_click[<entry[click_yes].command>]><reset> <gray><element[No].on_click[<entry[click_no].command>]><reset>"
+
+cc_npc_capitolmason_trades:
+    type: data
+    trades:
+        - trade[max_uses=8;inputs=stone[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=cobblestone[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=granite[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=diorite[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=andesite[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=sandstone[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=red_sandstone[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=smooth_basalt[quantity=16];result=cc_trades_dubloons[quantity=16];has_xp=false]
+        - trade[max_uses=8;inputs=deepslate[quantity=16];result=cc_trades_dubloons[quantity=48];has_xp=false]
+        - trade[max_uses=8;inputs=cobbled_deepslate[quantity=16];result=cc_trades_dubloons[quantity=48];has_xp=false]
