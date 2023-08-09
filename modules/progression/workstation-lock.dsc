@@ -12,13 +12,13 @@ cc_progression_workstation_lock_w:
                         - narrate "You don't know how to use that yet"
                         - determine cancelled
                 - case "BREWING":
-                    - if <player.has_flag[msq_brewing_status]> && <player.flag[msq_brewing_status]> == "Complete":
+                    - if <player.has_flag[brewing_enabled]>:
                         - stop
                     - else:
                         - narrate "You don't know how to use that yet"
                         - determine cancelled
                 - case "SMITHING":
-                    - if <player.has_flag[msq_smithing_status]> && <player.flag[msq_smithing_status]> == "Complete":
+                    - if <player.has_flag[msq5_state]> && <player.flag[msq5_state]> == completed:
                         - stop
                     - else:
                         - narrate "You don't know how to use that yet"

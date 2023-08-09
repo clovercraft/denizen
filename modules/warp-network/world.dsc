@@ -52,6 +52,6 @@ cc_anchorstone_pulse_t:
                     - narrate "You are now within range of a warp point!"
                     - permission add 'essentials.warps.*'
             - else:
-                - if <player.has_permission[essentials.warps.*]> && !<player.has_flag[warpglyph]>:
+                - if <player.has_permission[essentials.warps.*]> && !<player.has_flag[warpglyph]> && !<player.is_op>:
                     - narrate "You are now out of range range of the warp network"
                     - permission remove 'essentials.warps.*'

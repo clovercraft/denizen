@@ -6,4 +6,8 @@ cc_get_msq_step:
             - determine msq2
         - if <player.flag[msq2_state]> != completed:
             - determine msq2
-        - determine msq3
+        - if !<player.has_flag[msq3_state]> || <player.flag[msq3_state]> != completed:
+            - determine msq3
+        - if !<player.has_flag[msq4_state]> || <player.flag[msq4_state]> != completed:
+            - determine msq4
+        - determine msq5

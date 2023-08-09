@@ -25,7 +25,7 @@ cc_npc_avery_evencrest_i:
                             - stop
                         - if <[quest_step]> == completed:
                             - narrate "Hey, how's the enchanting going? I've just been getting back into my research. Turns out there's way more going on around here than I'd originaly thought. I might be in need of your services again in the future."
-                    - else:
+                    - if <[quest]> == msq3:
                         - define quest_step start
                         - if <player.has_flag[msq3_state]>:
                             - define quest_step <player.flag[msq3_state]>
@@ -39,4 +39,12 @@ cc_npc_avery_evencrest_i:
                             - run cc_msq3_handin
                             - stop
                         - if <[quest_step]> == completed:
-                            - narrate "Thanks for getting those additional samples for my research! I hope you find even more for me to study in your journies."
+                            - run cc_msq4_intro
+                    - if <[quest]> == msq4:
+                        - define step <proc[cc_msq4_state].context[<player>]>
+                        - if <[step]> == start:
+                            - run cc_msq4_intro
+                        - if <[step]> == accepted:
+                            - run cc_msq4_handin
+                    - if <[quest]> == msq5:
+                        - run cc_msq5_avery
