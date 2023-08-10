@@ -48,3 +48,5 @@ cc_npc_avery_evencrest_i:
                             - run cc_msq4_handin
                     - if <[quest]> == msq5:
                         - run cc_msq5_avery
+                    - if <[quest]> == msq6:
+                        - run cc_msq6_avery
