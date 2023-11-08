@@ -2,6 +2,7 @@ cc_hide_seek_end_no_check:
     type: task
     debug: false
     script:
+        - define remaining_players <server.online_players_flagged[hs_active]>
         - flag server hs_vote_end:!
         - flag server hs_running:!
         - narrate "<red>The match has ended, thanks for playing!<reset>" targets:<server.online_players_flagged[hs_active]>
@@ -11,6 +12,8 @@ cc_hide_seek_end_no_check:
             - flag <[hs_player]> hs_hidden:!
         - foreach <server.players_flagged[hs_seeker]> as:hs_player:
             - flag <[hs_player]> hs_seeker:!
+        - wait 5s
+        - sidebar remove players:<[remaining_players]>
 
 
 cc_hide_seek_end:
