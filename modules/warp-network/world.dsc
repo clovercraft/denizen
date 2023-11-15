@@ -25,7 +25,7 @@ cc_anchorstone_remove_c:
     aliases:
         - ranchor
     script:
-        - define customBlockStands <player.location.center.below[1.86].find_entities[armor_stand].within[3].filter[custom_name.contains[anchorBlock]]>
+        - define customBlockStands <player.location.center.below[1.86].find_entities[armor_stand].within[3]>
         - if <[customBlockStands].size||0> >= 1:
             - define endrod <[customBlockStands].get[1].location.find_blocks[end_rod].within[3]>
             - modifyblock <[endrod].get[1]> air
@@ -39,6 +39,10 @@ cc_anchorstone_place_t:
     script:
         - wait 1t
         - spawn armor_stand[custom_name=anchorBlock;equipment=air|air|air|warp_anchorstone;gravity=false;visible=false] <[location].center.below[1.86]>
+        - define stands <player.location.find_entities[armor_stand].within[10].filter[custom_name.contains[anchorBlock]]>
+        - foreach <[stands]> as:stand:
+            - flag <[stand]> anchorBlock:1
+            - adjust <[stand]> custom_name:''
         - modifyblock <[location]> end_rod
 
 cc_anchorstone_pulse_t:
@@ -46,8 +50,10 @@ cc_anchorstone_pulse_t:
     debug: false
     script:
         - foreach <server.online_players> as:__player:
-            - define anchor_stone <player.location.find_entities[armor_stand].within[250].filter[custom_name.contains[anchorBlock]]>
-            - if <[anchor_stone].size||0> >= 1:
+            # - define anchor_stone <player.location.find_entities[armor_stand].within[250]>
+            # - if <[anchor_stone].size||0> >= 1:
+            - define in_range <proc[cc_anchorstone_check]>
+            - if <[in_range]> == 1:
                 - if !<player.has_permission[essentials.warps.*]>:
                     - narrate "You are now within range of a warp point!"
                     - permission add 'essentials.warps.*'
@@ -55,3 +61,14 @@ cc_anchorstone_pulse_t:
                 - if <player.has_permission[essentials.warps.*]> && !<player.has_flag[warpglyph]> && !<player.is_op>:
                     - narrate "You are now out of range range of the warp network"
                     - permission remove 'essentials.warps.*'
+
+cc_anchorstone_check:
+    type: procedure
+    debug: false
+    definitions: __player
+    script:
+        - define stands <player.location.find_entities[armor_stand].within[250]>
+        - foreach <[stands]> as:stand:
+            - if <[stand].has_flag[anchorBlock]>:
+                - determine 1
+        - determine 0
