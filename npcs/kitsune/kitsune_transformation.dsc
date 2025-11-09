@@ -25,6 +25,7 @@ kitsune_transformation:
 on_transform_cooldown:
     type: task
     script:
+        - narrate "You tried to access your powers too often. Please wait 10 Seconds."
 
 kitsune_ears:
     type: item
