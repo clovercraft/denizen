@@ -25,7 +25,6 @@ kitsune_transformation:
 on_transform_cooldown:
     type: task
     script:
-        - narrate "You tried to access your powers to often. Please wait 10 Seconds."
 
 kitsune_ears:
     type: item
@@ -50,21 +49,5 @@ kitsune_ears:
                     amount: 5
                     slot: head
 
-
-kitsune_debug:
-    type: command
-    name: kitsunetest
-    description: Resets All Yuna flags
-    usage: /kitsunetest <&lt>category<&gt>
-    script:
-        - foreach <player.equipment_map> key:key as:val:
-            - drop <[val]>
-        - equip <player> head:kitsune_ears
-        - equip <player> body:air
-        - equip <player> legs:air
-        - equip <player> boots:air
-        - equip <player> hand:air
-        - equip <player> offhand:air
-        - equip <player> saddle:air
 
 
