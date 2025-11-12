@@ -1,0 +1,326 @@
+cc_fireworks_command:
+    type: command
+    name: ccfireworks
+    description: Start the fireworks show
+    usage: /ccfireworks
+    permission: cc.fireworks
+    script:
+        - run cc_fireworks_script
+
+cc_fireworks_script:
+    type: task
+    script:
+        - define alpha <server.flag[fireworks_launch_a]>
+        - define beta <server.flag[fireworks_launch_b]>
+        - define charlie <server.flag[fireworks_launch_c]>
+        - define delta <server.flag[fireworks_launch_d]>
+        - define echo <server.flag[fireworks_launch_e]>
+        - define foxtrot <server.flag[fireworks_launch_f]>
+        - wait 5s
+        - firework <[alpha]> life:2 ball primary:green fade:<dark_green> flicker trail
+        - wait 5s
+        - firework <[beta]> life:2 ball primary:<dark_green> fade:white flicker trail
+        - wait 5s
+        - firework <[beta]> life:2 ball primary:green fade:white flicker trail
+        - firework <[alpha]> life:2 ball primary:<dark_green> fade:white flicker trail
+        - wait 3s
+        - firework <[alpha]> life:2 burst primary:red fade:orange trail
+        - wait 2s
+        # 0:20 - first drop
+        - firework <[alpha]> life:2 burst primary:yellow fade:white trail
+        - firework <[beta]> life:2 burst primary:yellow fade:white trail
+        - firework <[alpha]> life:2 creeper primary:green fade:<dark_green> trail flicker
+        - wait 5s
+        - firework <[alpha]> life:2 ball_large primary:red fade:orange trail flicker
+        - wait 1s
+        - firework <[alpha]> life:2 ball_large primary:yellow fade:green trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 ball_large primary:<blue> fade:<dark_blue> trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 ball_large primary:<dark_purple> fade:purple trail flicker
+        - wait 1s
+        # 0:30 - small swell
+        - firework <[alpha]> life:2 star primary:<green> fade:<gold> trail flicker
+        - wait 2s
+        - firework <[charlie]> life:2 ball primary:white flicker
+        - firework <[delta]> life:2 ball primary:white flicker
+        - wait 2s
+        - firework <[alpha]> life:2 star primary:<green> fade:<aqua> trail
+        - firework <[beta]> life:2 star primary:<aqua> fade:<green> trail
+        - wait 1s
+        - firework <[alpha]> life:2 burst primary:<green> flicker
+        - wait 5s
+        # 0:42 - add drums
+        - firework <[alpha]> life:2 ball primary:black fade:white flicker
+        - firework <[charlie]> life:2 ball primary:black fade:white flicker
+        - firework <[beta]> life:2 star primary:<green> fade:white flicker trail
+        - wait 5s
+        - firework <[charlie]> life:2 ball primary:black fade:green flicker
+        - firework <[beta]> life:2 ball primary:black fade:green flicker
+        - firework <[alpha]> life:2 star primary:<gold> fade:white flicker trail
+        - wait 5s
+        - firework <[alpha]> life:2 ball_large primary:black fade:red flicker
+        - firework <[beta]> life:2 ball_large primary:black fade:red flicker
+        - firework <[charlie]> life:2 creeper primary:<green> fade:red flicker trail
+        - wait 5s
+        - firework <[alpha]> life:2 star primary:<green> flicker trail
+        - firework <[delta]> life:2 star primary:<green> flicker trail
+        - firework <[charlie]> life:2 star primary:<gold> flicker trail
+        - wait 3
+        # 1:03 - chorus
+        - firework <[alpha]> life:2 ball_large primary:red fade:orange trail flicker
+        - wait 1s
+        - firework <[alpha]> life:2 ball_large primary:yellow fade:green trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 ball_large primary:<blue> fade:<dark_blue> trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 ball_large primary:<dark_purple> fade:purple trail flicker
+        - wait 5s
+        # 1:13 - stanza 2
+        - firework <[alpha]> life:2 creeper primary:red fade:orange trail flicker
+        - wait 1s
+        - firework <[delta]> life:2 ball primary:yellow fade:green trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 ball primary:<gold> trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 burst primary:<dark_purple> fade:purple trail flicker
+        - wait 5s
+        - firework <[delta]> life:2 star primary:<green> fade:orange trail flicker
+        - wait 1s
+        - firework <[charlie]> life:2 burst primary:yellow fade:green trail flicker
+        - wait 1s
+        - firework <[alpha]> life:2 burst primary:<gold> trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 star primary:<dark_purple> fade:purple trail flicker
+        - wait 5s
+        # 1:23 - stanza 3
+        - firework <[charlie]> life:2 star primary:red fade:orange trail flicker
+        - wait 1s
+        - firework <[alpha]> life:2 star primary:yellow fade:green trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 star primary:<gold> trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 star primary:<dark_purple> fade:purple trail flicker
+        - wait 5s
+        - firework <[charlie]> life:2 burst primary:yellow fade:orange trail flicker
+        - wait 1s
+        - firework <[charlie]> life:2 burst primary:yellow fade:green trail flicker
+        - wait 1s
+        - firework <[delta]> life:2 burst primary:<gold> fade:yellow trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 burst primary:<gold> fade:red trail flicker
+        - wait 5s
+        # 1:33 - stanza 4
+        - firework <[alpha]> life:2 creeper primary:red fade:orange trail flicker
+        - wait 1s
+        - firework <[charlie]> life:2 ball primary:yellow fade:green trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 ball primary:<gold> trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 burst primary:<dark_purple> fade:purple trail flicker
+        - wait 5s
+        # 1:43 - bridge (smaller)
+        - firework <[alpha]> life:2 burst primary:white fade:green trail flicker
+        - wait 5s
+        - firework <[beta]> life:2 burst primary:white fade:green trail flicker
+        - wait 5s
+        # 1:55 - add horns
+        - firework <[charlie]> life:2 burst primary:white fade:green trail flicker
+        - firework <[alpha]> life:2 burst primary:green fade:white trail flicker
+        - firework <[beta]> life:2 burst primary:green fade:white trail flicker
+        - wait 5s
+        - firework <[charlie]> life:2 burst primary:<aqua> fade:<blue> trail flicker
+        - firework <[alpha]> life:2 burst primary:<blue> fade:<aqua> trail flicker
+        - firework <[beta]> life:2 burst primary:<blue> fade:<aqua> trail flicker
+        - wait 5s
+        # 2:05 - outro begin
+        - firework <[charlie]> life:2 star primary:yellow flicker
+        - wait 1s
+        - firework <[alpha]> life:2 ball primary:black fade:white flicker
+        - firework <[charlie]> life:2 ball primary:black fade:white flicker
+        - wait 2s
+        - firework <[beta]> life:2 star primary:<green> fade:white flicker trail
+        - firework <[charlie]> life:2 ball primary:black fade:green flicker
+        - wait 3s
+        - firework <[beta]> life:2 ball primary:black fade:green flicker
+        - firework <[alpha]> life:2 star primary:<gold> fade:white flicker trail
+        - wait 2s
+        - firework <[alpha]> life:2 ball_large primary:black fade:red flicker
+        - wait 3s
+        - firework <[beta]> life:2 ball_large primary:black fade:red flicker
+        - firework <[charlie]> life:2 creeper primary:<green> fade:red flicker trail
+        - wait 5s
+        - firework <[alpha]> life:2 star primary:<green> flicker trail
+        - firework <[delta]> life:2 star primary:<green> flicker trail
+        - firework <[charlie]> life:2 star primary:<gold> flicker trail
+        - wait 4
+        # 2:25 - second verse
+        - firework <[charlie]> life:2 star primary:red fade:orange trail flicker
+        - wait 1s
+        - firework <[alpha]> life:2 star primary:yellow fade:green trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 star primary:<gold> trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 star primary:<dark_purple> fade:purple trail flicker
+        - wait 5s
+        - firework <[charlie]> life:2 burst primary:yellow fade:orange trail flicker
+        - firework <[delta]> life:2 burst primary:yellow fade:orange trail flicker
+        - wait 1s
+        - firework <[charlie]> life:2 burst primary:yellow fade:green trail flicker
+        - firework <[beta]> life:2 burst primary:yellow fade:green trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 burst primary:<gold> fade:yellow trail flicker
+        - firework <[alpha]> life:2 burst primary:<gold> fade:yellow trail flicker
+        - wait 1s
+        - firework <[alpha]> life:2 burst primary:<gold> fade:red trail flicker
+        - firework <[beta]> life:2 burst primary:<gold> fade:red trail flicker
+        - wait 5s
+        - firework <[alpha]> life:2 creeper primary:red fade:orange trail flicker
+        - firework <[beta]> life:2 star primary:green fade:white trail
+        - firework <[charlie]> life:2 burst primary:yellow fade:red trail flicker
+        - wait 1s
+        - firework <[charlie]> life:2 ball primary:yellow fade:green trail flicker
+        - firework <[alpha]> life:2 ball_large primary:green fade:white trail flicker
+        - firework <[beta]> life:2 star primary:<aqua> fade:white trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 ball primary:<gold> trail flicker
+        - firework <[alpha]> life:2 ball_large primary:<yellow> trail flicker
+        - firework <[charlie]> life:2 creeper primary:<red> trail flicker
+        - wait 1s
+        - firework <[beta]> life:2 burst primary:<dark_purple> fade:purple trail flicker
+        - wait 1s
+        - firework <[alpha]> life:2 burst primary:white fade:green trail flicker
+        - firework <[beta]> life:2 burst primary:white fade:green trail flicker
+        - firework <[charlie]> life:2 burst primary:white fade:green trail flicker
+        - firework <[delta]> life:2 burst primary:white fade:green trail flicker
+        - wait 10t
+        - firework <[alpha]> life:2 star primary:green fade:white trail flicker
+        - firework <[beta]> life:2 star primary:green fade:white trail flicker
+        - firework <[charlie]> life:2 star primary:green fade:white trail flicker
+        - firework <[delta]> life:2 star primary:green fade:white trail flicker
+        - wait 10t
+        - firework <[alpha]> life:2 ball_large primary:aqua fade:blue trail flicker
+        - firework <[beta]> life:2 ball_large primary:aqua fade:blue trail flicker
+        - firework <[charlie]> life:2 ball_large primary:aqua fade:blue trail flicker
+        - firework <[delta]> life:2 ball_large primary:aqua fade:blue trail flicker
+        - wait 10t
+        - firework <[alpha]> life:2 burst primary:yellow fade:orange trail flicker
+        - firework <[beta]> life:2 burst primary:yellow fade:orange trail flicker
+        - firework <[charlie]> life:2 burst primary:yellow fade:orange trail flicker
+        - firework <[delta]> life:2 burst primary:yellow fade:orange trail flicker
+        - wait 1s
+        - firework <[alpha]> life:2 star primary:green fade:white trail flicker
+        - firework <[alpha]> life:2 star primary:black fade:green trail flicker
+        - firework <[beta]> life:2 star primary:green fade:white trail flicker
+        - firework <[beta]> life:2 star primary:black fade:green trail flicker
+        - firework <[charlie]> life:2 star primary:green fade:white trail flicker
+        - firework <[charlie]> life:2 star primary:black fade:green trail flicker
+        - firework <[delta]> life:2 star primary:green fade:white trail flicker
+        - firework <[delta]> life:2 star primary:black fade:green trail flicker
+        # 2:45 - finale
+        - firework <[alpha]> life:2 ball primary:green fade:<dark_green> flicker trail
+        - wait 10t
+        - firework <[beta]> life:2 ball primary:<dark_green> fade:white flicker trail
+        - wait 10t
+        - firework <[beta]> life:2 ball primary:green fade:white flicker trail
+        - firework <[alpha]> life:2 ball primary:<dark_green> fade:white flicker trail
+        - wait 10t
+        - firework <[alpha]> life:2 burst primary:red fade:orange trail
+        - wait 10t
+        - firework <[alpha]> life:2 burst primary:yellow fade:white trail
+        - firework <[beta]> life:2 burst primary:yellow fade:white trail
+        - firework <[alpha]> life:2 creeper primary:green fade:<dark_green> trail flicker
+        - wait 10t
+        - firework <[alpha]> life:2 ball_large primary:red fade:orange trail flicker
+        - wait 10t
+        - firework <[alpha]> life:2 ball_large primary:yellow fade:green trail flicker
+        - wait 10t
+        - firework <[beta]> life:2 ball_large primary:<blue> fade:<dark_blue> trail flicker
+        - wait 10t
+        - firework <[beta]> life:2 ball_large primary:<dark_purple> fade:purple trail flicker
+        - wait 10t
+        - firework <[alpha]> life:2 star primary:<green> fade:<gold> trail flicker
+        - wait 10t
+        - firework <[charlie]> life:2 ball primary:white flicker
+        - firework <[delta]> life:2 ball primary:white flicker
+        - firework <[foxtrot]> life:2 ball primary:white flicker
+        - wait 10t
+        - firework <[alpha]> life:2 star primary:<green> fade:<aqua> trail
+        - firework <[beta]> life:2 star primary:<aqua> fade:<green> trail
+        - firework <[echo]> life:2 star primary:<green> fade:<aqua> trail
+        - wait 10t
+        - firework <[alpha]> life:2 burst primary:<green> flicker
+        - firework <[foxtrot]> life:2 burst primary:<green> flicker
+        - wait 10t
+        - firework <[alpha]> life:2 ball primary:black fade:white flicker
+        - firework <[charlie]> life:2 ball primary:black fade:white flicker
+        - firework <[beta]> life:2 star primary:<green> fade:white flicker trail
+        - firework <[foxtrot]> life:2 ball primary:black fade:white flicker
+        - firework <[echo]> life:2 star primary:<green> fade:white flicker trail
+        - wait 10t
+        - firework <[charlie]> life:2 ball primary:black fade:green flicker
+        - firework <[beta]> life:2 ball primary:black fade:green flicker
+        - firework <[alpha]> life:2 star primary:<gold> fade:white flicker trail
+        - firework <[echo]> life:2 ball primary:black fade:green flicker
+        - firework <[foxtrot]> life:2 ball primary:black fade:green flicker
+        - wait 10t
+        - firework <[alpha]> life:2 ball_large primary:black fade:red flicker
+        - firework <[beta]> life:2 ball_large primary:black fade:red flicker
+        - firework <[charlie]> life:2 creeper primary:<green> fade:red flicker trail
+        - wait 10t
+        - firework <[alpha]> life:2 star primary:<green> flicker trail
+        - firework <[delta]> life:2 star primary:<green> flicker trail
+        - firework <[charlie]> life:2 star primary:<gold> flicker trail
+        - wait 3
+        - firework <[alpha]> life:2 ball_large primary:red fade:orange trail flicker
+        - firework <[echo]> life:2 ball_large primary:red fade:orange trail flicker
+        - wait 10t
+        - firework <[alpha]> life:2 ball_large primary:yellow fade:green trail flicker
+        - firework <[echo]> life:2 ball_large primary:yellow fade:green trail flicker
+        - wait 10t
+        - firework <[beta]> life:2 ball_large primary:<blue> fade:<dark_blue> trail flicker
+        - firework <[foxtrot]> life:2 ball_large primary:<blue> fade:<dark_blue> trail flicker
+        - wait 10t
+        - firework <[beta]> life:2 ball_large primary:<dark_purple> fade:purple trail flicker
+        - firework <[foxtrot]> life:2 ball_large primary:<dark_purple> fade:purple trail flicker
+        - wait 10t
+        - firework <[alpha]> life:2 creeper primary:red fade:orange trail flicker
+        - wait 5t
+        - firework <[echo]> life:2 creeper primary:red fade:orange trail flicker
+        - wait 10t
+        - firework <[delta]> life:2 ball primary:yellow fade:green trail flicker
+        - wait 5t
+        - firework <[foxtrot]> life:2 ball primary:yellow fade:green trail flicker
+        - wait 10t
+        - firework <[beta]> life:2 ball primary:<gold> trail flicker
+        - firework <[echo]> life:2 ball primary:<gold> trail flicker
+        - wait 10t
+        - firework <[beta]> life:2 burst primary:<dark_purple> fade:purple trail flicker
+        - wait 10t
+        - firework <[delta]> life:2 star primary:<green> fade:orange trail flicker
+        - wait 10t
+        - firework <[charlie]> life:2 burst primary:yellow fade:green trail flicker
+        - wait 10t
+        - firework <[alpha]> life:2 burst primary:<gold> trail flicker
+        - wait 10t
+        - firework <[beta]> life:2 star primary:<dark_purple> fade:purple trail flicker
+        - wait 10t
+        - firework <[charlie]> life:2 star primary:red fade:orange trail flicker
+        - wait 10t
+        - firework <[alpha]> life:2 star primary:yellow fade:green trail flicker
+        - wait 10t
+        - firework <[beta]> life:2 star primary:<gold> trail flicker
+        - wait 10t
+        - firework <[beta]> life:2 star primary:<dark_purple> fade:purple trail flicker
+        - firework <[echo]> life:2 star primary:<dark_purple> fade:purple trail flicker
+        - wait 10t
+        - firework <[charlie]> life:2 burst primary:yellow fade:orange trail flicker
+        - firework <[foxtrot]> life:2 burst primary:yellow fade:orange trail flicker
+        - wait 10t
+        - firework <[charlie]> life:2 burst primary:yellow fade:green trail flicker
+        - wait 10t
+        - firework <[delta]> life:2 burst primary:<gold> fade:yellow trail flicker
+        - firework <[echo]> life:2 burst primary:<gold> fade:yellow trail flicker
+        - wait 10t
+        - firework <[beta]> life:2 burst primary:<gold> fade:red trail flicker
+        - firework <[foxtrot]> life:2 burst primary:<gold> fade:red trail flicker
