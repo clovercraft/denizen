@@ -72,7 +72,7 @@ nikto_interact:
             - if <player.has_flag[silverfish_familiar]>:
                 - stop
             - else:
-                - narrate "Visit more often"
+                - narrate "<&7>Visit more often to unlock Quest"
 
 
 silverfish_quest_begin:
