@@ -158,7 +158,7 @@ klaatu_quest_2:
         - flag player silverfish_quest_1:!
         - flag player silverfish_quest_2:1
 
-#Barada Sections
+#Barada Sections - Yes it's name is Barada.  Zhag wanted Klaatu to provide the wrong name.
 barada_interact:
     type: task
     script:

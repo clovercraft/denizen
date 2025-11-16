@@ -22,16 +22,15 @@ barada_assign:
         on click:
         - run barada_interact
 
-misc_assign:
+silverfish_collective_assign:
     type: assignment
     actions:
         on assignment:
         - trigger name:proximity state:true
     interact scripts:
-    - 10 misc_interact
+    - 10 silverfish_collective_interact
 
-
-misc_interact:
+silverfish_collective_interact:
     type: interact
     steps:
         1:
@@ -45,7 +44,7 @@ misc_interact:
                             - flag player silverfish_familiar:1
                             - stop
                         - else:
-                            - flag player silverfish_visit_cooldown:1 expire:1s
+                            - flag player silverfish_visit_cooldown:1 expire:12h
                             - flag player silverfish_visits:++
 
 
