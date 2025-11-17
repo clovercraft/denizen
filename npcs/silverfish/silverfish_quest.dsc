@@ -2,6 +2,9 @@
 nikto_interact:
     type: task
     script:
+        - if <player.has_flag[silverfish_quest_complete]>:
+            - run nikto_shop
+            - stop
         - if <player.has_flag[silverfish_quest_refused]>:
             - narrate "<&7>You may not attempt this quest for another <player.flag_expiration[silverfish_quest_refused].from_now.formatted>"
             - stop
@@ -39,23 +42,23 @@ nikto_interact:
                     - flag player silverfish_quest_complete:1
                     - stop
             - if <player.has_flag[silverfish_quest_3]>:
-                - narrate "Barada, no more part of mind. Barada free. I's only have Klaatu."
+                - narrate "Varada now Barada, easy change. I's joyous that he's safe. I's thank <player.name> for spreading knowings of this."
                 - wait 1s
-                - narrate "I's knowing Barada desired no mind. Always want free."
+                - narrate "I's always knowing Barada desired to leave the many minds. Joyous he was able to do so."
                 - wait 1s
-                - narrate "I's thank <player.name>. I's found this in metal cave, you take."
+                - narrate "I would knowings <player.name> of all Silverfish history, but (((NPC_Undefined))) would know better."
+                - wait 1s
+                - narrate "I's thank <player.name> again. To show thanks, I's want <player.name> to take this..."
                 - wait 1s
                 - give silverfish_reward
+                - wait 1s
+                - narrate "Entrusted to us by Queen this was. <player.name> should have."
+                - wait 1s
                 - narrate "Oh, before <player.name> go, We's open shop's for <player.name>"
                 - toast "<&7>Quest Complete: <&5><bold>Find Missing Brother" icon:silverfish_reward
                 - flag player silverfish_quest_complete:1
                 - stop
-            - if <player.has_flag[silverfish_quest_2]>:
-                - narrate "I thankful to <player.name>."
-                - wait 2
-                - narrate "Last seen, talk to I brother Klaatu. There. Go talk to get more knowing."
-                - stop
-            - if <player.has_flag[silverfish_quest_1]>:
+            - if <player.has_flag[silverfish_quest_2]> or <player.has_flag[silverfish_quest_1]>:
                 - narrate "I thankful to <player.name>."
                 - wait 2
                 - narrate "Last seen, talk to I brother Klaatu. There. Go talk to get more knowing."
@@ -65,9 +68,9 @@ nikto_interact:
                 - wait 1s
                 - narrate "You-help?"
                 - run silverfish_quest_begin
-        - if <player.location.world.moon_phase> == 1 && <player.location.world.time> >= 13500:
-            - narrate "Easter egg"
-            - stop
+#         if <player.location.world.moon_phase> == 1 && <player.location.world.time> >= 13500:
+#             narrate "Easter egg"
+#             stop
         - else:
             - if <player.has_flag[silverfish_familiar]>:
                 - stop
@@ -103,6 +106,9 @@ silverfish_refuse:
 klaatu_interact:
     type: task
     script:
+        - if <player.has_flag[silverfish_quest_complete]>:
+            - run klaatu_shop
+            - stop
         - if <player.has_flag[silverfish_quest_1]>:
             - narrate "I brother sent you? Why?"
             - clickable klaatu_quest_1 save:fun
@@ -117,11 +123,11 @@ klaatu_interact:
             - narrate "I's knowing <player.name> made Varada not return..."
             - stop
         - if <player.has_flag[silverfish_quest_3]>:
-            - narrate "Knowings is wrong. Varada return later. <player.name> wait, I's knowing."
+            - narrate "<player.name> knowings is wrong. Varada will return later. Just wait, <player.name>, I's knowing is true."
             - wait 1s
             - narrate "Go tell Nikto, <player.name>."
             - wait 1s
-            - narrate "Go away from me."
+            - narrate "Go away from me, now."
             - flag player klaatu:1
         - else:
             - narrate "Biped, return later - Shops closed."
@@ -163,17 +169,20 @@ barada_interact:
     type: task
     script:
         - if <player.has_flag[barada]>:
-            - narrate "I's remain here, I's brothers survive with no I."
+            - narrate "I's remain here, I's brothers survive without I."
             - wait 2s
             - narrate "I knowledge here is greater than stone. I knowledge here, mind is free. I is just I."
             - wait 2s
             - narrate "I... is just I."
+            - wait 2s
+            - narrate "<&7><player.name>:<reset> Wait, you're brothers are Klaatu & Nikto? Have you seen or heard from Varada?"
+            - narrate "Varada I was. Barada I am now."
             - flag player silverfish_quest_1:!
             - flag player silverfish_quest_2:!
             - flag player silverfish_quest_3:1
             - stop
         - if <player.has_flag[silverfish_quest_2]>:
-            - narrate  "I's brothers sent <player.name> to I? I's brothers concern is great, but I remain here."
+            - narrate  "I's brothers, Klaatu and Nikto, sent <player.name> to I? I's brothers concern is great, but I remain here."
             - narrate "<&7>Try to talk to them again in a moment."
             - flag player barada:1
         - else:
@@ -182,8 +191,8 @@ barada_interact:
                 - narrate "I's brothers concern of I."
                 - narrate "Place here is lovely."
                 - narrate "The biped has been kind to I."
-                - narrate "I is just I here."
-                - narrate "Many peace of I's mind. I's mind is just I's now."
+                - narrate "I is just I, here."
+                - narrate "I's without others minds, peace finally."
 
 
 #Reward Section

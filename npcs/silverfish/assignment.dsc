@@ -37,7 +37,7 @@ silverfish_collective_interact:
             proximity trigger:
                 entry:
                     script:
-                        - if <player.has_flag[silverfish_visit_cooldown]>:
+                        - if <player.has_flag[silverfish_visit_cooldown]> or <player.has_flag[silverfish_familiar]>:
                             - stop
                         - if <player.flag[silverfish_visits]> >= 2:
                             - flag player silverfish_visits:3
