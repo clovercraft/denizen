@@ -7,7 +7,7 @@ kitsune_transformation:
                 - run on_transform_cooldown
             - else:
                 - flag <player> transforming:1 expire:10s
-                - narrate "<&f>Your <&b><bold>Hoshi No Tama<&f> Glows"
+                - narrate "<&7>Your <&b><bold>Hoshi No Tama<&7> Glows"
                 - wait 1s
                 - foreach <player.equipment_map> key:key as:val:
                     - drop <[val]>
@@ -19,13 +19,13 @@ kitsune_transformation:
                 - equip <player> offhand:air
                 - equip <player> saddle:air
                 - wait 1s
-                - narrate "<&f>Your <&b><bold>Hoshi No Tama<&f> Stops Glowing"
+                - narrate "<&7>Your <&b><bold>Hoshi No Tama<&7> Stops Glowing"
 
 
 on_transform_cooldown:
     type: task
     script:
-        - narrate "You tried to access your powers too often. Please wait 10 Seconds."
+        - narrate "<&7>You tried to access your powers too often. Please wait 10 Seconds."
 
 kitsune_ears:
     type: item

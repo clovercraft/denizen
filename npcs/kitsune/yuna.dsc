@@ -25,14 +25,14 @@ yuna_interact:
             - run yuna_wait_for_return
             - stop
         - if <player.has_flag[yuna_quest_complete]>:
-            - narrate "You may repeat this quest in 1 day"
-        - narrate "<&7>Ah… a mortal with a curious spirit."
+            - narrate "<&7>You may repeat this quest in 1 day"
+        - narrate "<bold>Yuna:<reset> Ah… a mortal with a curious spirit."
         - wait 1
-        - narrate "<&7>I am <&5>Yuna, Kistsune Matriarch<&7> of the Hidden Grove."
+        - narrate "<bold>Yuna:<reset> I am <&5>Yuna, Kistsune Matriarch<reset> of the Hidden Grove."
         - wait 1
-        - narrate "<&7>To earn my trust—and a fragment of my power—you must aid me in restoring the groves sacred power."
+        - narrate "<bold>Yuna:<reset> To earn my trust—and a fragment of my power—you must aid me in restoring the groves sacred power."
         - wait 1
-        - narrate "<&7>Bring me these offerings, and I shall grant you a Hoshi no Tama, the star orb of my kin."
+        - narrate "<bold>Yuna:<reset> Bring me these offerings, and I shall grant you a Hoshi no Tama, the star orb of my kin."
         - wait 1
         - clickable yuna_accept save:yes
         - clickable yuna_refuse save:no
@@ -46,7 +46,7 @@ yuna_accept:
         - flag player yuna_glowstone_dust:!
         - flag player yuna_rabbit_hide:!
         - flag player yuna_amethyst_shard:!
-        - narrate "I need you to gather the follow items:"
+        - narrate "<bold>Yuna:<reset> I need you to gather the follow items:"
         - wait 1
         - narrate "1 <&6>Ghast Tear<&7> - A symbol of sorrow"
         - wait 1
@@ -61,7 +61,7 @@ yuna_accept:
 yuna_refuse:
     type: task
     script:
-        - narrate "<&7>Okay. Come back if you ever change your mind"
+        - narrate "<bold>Yuna:<reset> Okay. Come back if you ever change your mind."
         - narrate "<&7>[Quest refused]"
 
 yuna_wait_for_return:
@@ -69,31 +69,31 @@ yuna_wait_for_return:
     script:
         - define item <player.item_in_hand>
         - if <[item]> == <item[ghast_tear]>:
-            - narrate "<&7>Ah.  The Ghast Tear."
+            - narrate "<bold>Yuna:<reset> The Ghast Tear.  It still weeps."
             - take item:ghast_tear
             - narrate "<&7>[<&b><bold>1 Ghast Tear - A symbol of sorrow<&7> removed]"
             - flag player yuna_ghast_tear:1
             - wait 2
         - if <[item]> == <item[glowstone_dust]>:
-            - narrate "<&7>Ah.  The Glowstone Dust."
+            - narrate "<bold>Yuna:<reset> The Glowstone Dust, with it's ever-present glow."
             - take item:glowstone_dust
             - narrate "<&7>[<&b><bold>1 Glowstone Dust - The essence of light<&7> removed]"
             - flag player yuna_glowstone_dust:1
             - wait 2
         - if <[item]> == <item[rabbit_hide]>:
-            - narrate "<&7>Ah.  The Rabbit Hide."
+            - narrate "<bold>Yuna:<reset> The Rabbit Hide. Nature always demands a sacrifice."
             - take item:rabbit_hide
             - narrate "<&7>[<&b><bold>1 Rabbit Hide - To veil your spirit<&7> removed]"
             - flag player yuna_rabbit_hide:1
             - wait 2
         - if <[item]> == <item[amethyst_shard]>:
-            - narrate "<&7>Ah.  The Amethyst Shard."
+            - narrate "<bold>Yuna:<reset> The Amethyst Shard. Such potential hidden inside."
             - take item:amethyst_shard
             - narrate "<&7>[<&b><bold>1 Amethyst Shard - A crystal of dreams<&7> removed]"
             - flag player yuna_amethyst_shard:1
             - wait 2
         - if <player.has_flag[yuna_ghast_tear]> && <player.has_flag[yuna_glowstone_dust]> && <player.has_flag[yuna_rabbit_hide]> && <player.has_flag[yuna_amethyst_shard]>:
-            - narrate "<&7>Well done!!"
+            - narrate "<bold>Yuna:<reset> Well done!!"
             - flag player yuna_ghast_tear:!
             - flag player yuna_glowstone_dust:!
             - flag player yuna_rabbit_hide:!
@@ -112,14 +112,14 @@ yuna_quest_items_left:
     type: task
     script:
         - if !<player.has_flag[yuna_ghast_tear]>:
-            - narrate "You still need to hand in <&b><bold>1 Ghast Tear - A symbol of sorrow"
+            - narrate "<&7>You still need to hand in <&b><bold>1 Ghast Tear - A symbol of sorrow"
             - wait 1s
         - if !<player.has_flag[yuna_glowstone_dust]>:
-            - narrate "You still need to hand in <&b><bold>1 Glowstone Dust - The essence of light"
+            - narrate "<&7>You still need to hand in <&b><bold>1 Glowstone Dust - The essence of light"
             - wait 1s
         - if !<player.has_flag[yuna_rabbit_hide]>:
-            - narrate "You still need to hand in <&b><bold>1 Rabbit Hide - To veil your spirit"
+            - narrate "<&7>You still need to hand in <&b><bold>1 Rabbit Hide - To veil your spirit"
             - wait 1s
         - if !<player.has_flag[yuna_amethyst_shard]>:
-            - narrate "You still need to hand in <&b><bold>1 Amethyst Shard - A crystal of dreams"
+            - narrate "<&7>You still need to hand in <&b><bold>1 Amethyst Shard - A crystal of dreams"
             - wait 1s

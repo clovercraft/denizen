@@ -10,16 +10,18 @@ nikto_shop:
     type: task
     script:
         - random:
-            - narrate "<player.name> returns!"
-            - narrate "I's thank you again for finding Barada."
-            - narrate "Klaatu grumpy always, friend <player.name> no worry."
-            - narrate "Greeting, <player.name>!"
-            - narrate "Welcome back, <player.name>!"
-            - narrate "See what I's has gathered, friend!"
-            - narrate "I's always joyous when <player.name> stop by!"
+            - narrate "<bold>Nikto:<reset> <player.name> returns!"
+            - narrate "<bold>Nikto:<reset> I's thank you again for finding Barada."
+            - narrate "<bold>Nikto:<reset> Klaatu grumpy always, friend <player.name> no worry."
+            - narrate "<bold>Nikto:<reset> Greeting, <player.name>!"
+            - narrate "<bold>Nikto:<reset> Welcome back, <player.name>!"
+            - narrate "<bold>Nikto:<reset> See what I's has gathered, friend!"
+            - narrate "<bold>Nikto:<reset> I's always joyous when <player.name> stop by!"
         - wait 1s
         - if <player.has_flag[nikto_cooldown]>:
-            - narrate "Sorry friend, I can only trade with you every other day."
+            - narrate "<bold>Nikto:<reset> Sorry friend, I can only trade with you every other day."
+            - wait 1s
+            - narrate "<&7>You may trade with Nikto again in <player.flag_expiration[nikto_cooldown].from_now.formatted>"
             - stop
         - else:
             - narrate "Sherds? Or.. Buds?"
@@ -30,14 +32,12 @@ nikto_shop:
 silverfish_sherds:
     type: task
     script:
-        - narrate "Open Trade"
         - opentrades <script[nikto_voucher_trades].data_key[trades]> title:Nikto
 
 silverfish_buds:
     type: task
     script:
         - flag player nikto_cooldown:1 expire:2d
-        - narrate "Open Trade"
         - opentrades <script[nikto_shop_trades].data_key[trades]> title:Nikto
 
 nikto_shop_trades:
@@ -79,20 +79,21 @@ klaatu_shop:
     type: task
     script:
         - random:
-            - narrate "I's no like <player.name>, hurry then go."
-            - narrate "What <player.name> want?"
-            - narrate "Sks'tc cksh kskchk!"
-            - narrate "Hmm?"
-            - narrate "Hurry now."
-            - narrate "...more?"
-            - narrate "What <player.name> want now?"
+            - narrate "<bold>Klaatu:<reset> I's no like <player.name>, hurry then go."
+            - narrate "<bold>Klaatu:<reset> What <player.name> want?"
+            - narrate "<bold>Klaatu:<reset> Sks'tc cksh kskchk!"
+            - narrate "<bold>Klaatu:<reset> Hmm?"
+            - narrate "<bold>Klaatu:<reset> Hurry now."
+            - narrate "<bold>Klaatu:<reset> ...more?"
+            - narrate "<bold>Klaatu:<reset> What <player.name> want now?"
         - wait 1s
         - if <player.has_flag[klaatu_cooldown]>:
-            - narrate "Sorry <player.name>, I will only trade with you every other day."
+            - narrate "<bold>Klaatu:<reset> Sorry <player.name>, I will only trade with you every other day."
+            - wait 1s
+            - narrate "<&7>You may trade with Klaatu again in <player.flag_expiration[klaatu_cooldown].from_now.formatted>"
             - stop
         - else:
             - flag player klaatu_cooldown:1 expire:2d
-            - narrate "Open Trade"
             - opentrades <script[klaatu_shop_trades].data_key[trades]> title:Klaatu
 
 klaatu_shop_trades:
@@ -105,9 +106,9 @@ klaatu_shop_trades:
 
 sherd_voucher:
     type: item
-    material: iron_nugget
+    material: paper
     mechanisms:
-        custom_model_data: 23
+        custom_model_data: 6001
     display name: <&6>Sherd Voucher<&r>
     allow in material recipes: false
 
@@ -115,17 +116,21 @@ sherd_voucher:
 nikto_shop_debug:
     type: command
     description: Nikto Shop Debug.
+    permission: cc.nikotoshop
     name: niktoshop
     usage: /niktoshop
     script:
         - flag player nikto_cooldown:!
+        - narrate "<&7>Nikto Shop Flags Cleared"
         - run nikto_shop
 
 klaatu_shop_debug:
     type: command
     description: Klaatu Shop Debug.
+    permission: cc.klaatushop
     name: klaatushop
     usage: /klaatushop
     script:
         - flag player klaatu_cooldown:!
+        - narrate "<&7>Klaatu Shop Flags Cleared"
         - run klaatu_shop
