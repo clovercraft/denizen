@@ -1,11 +1,3 @@
-#cc_npc_capitolsmith_a:
-#    type: assignment
-#    actions:
-#        on assignment:
-#         trigger name:click state:true
-#    interact scripts:
-#     cc_npc_capitolsmith_i
-
 nikto_shop:
     type: task
     script:
