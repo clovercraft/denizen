@@ -79,8 +79,8 @@ silverfish_quest_begin:
     type: task
     script:
         - narrate "<&7>Do you want to accept the Quest <&5><bold>Find Missing Brother<&7>?"
-        - clickable silverfish_accept save:yes
-        - clickable silverfish_refuse save:no
+        - clickable silverfish_accept save:yes until:2m
+        - clickable silverfish_refuse save:no until:2m
         - narrate "<&7><element[<&lb><green>Yes<&7><&rb>].on_click[<entry[yes].command>]> <&7>or <element[<&lb><red>No<&7><&rb>].on_click[<entry[no].command>]>"
 
 silverfish_accept:
@@ -108,8 +108,8 @@ klaatu_interact:
             - stop
         - if <player.has_flag[silverfish_quest_1]>:
             - narrate "<bold>Klaatu:<reset> I brother sent you? Why?"
-            - clickable klaatu_quest_1 save:fun
-            - clickable klaatu_quest_2 save:serious
+            - clickable klaatu_quest_1 save:fun until:2m
+            - clickable klaatu_quest_2 save:serious until:2m
             - narrate "<&7><element[<&lb><red>To Make Fun of you.<&7><&rb>].on_click[<entry[fun].command>]>"
             - narrate "<&7><element[<&lb><green>To Help find your brother.<&7><&rb>].on_click[<entry[serious].command>]>"
             - stop

@@ -34,8 +34,8 @@ yuna_interact:
         - wait 1
         - narrate "<bold>Yuna:<reset> Bring me these offerings, and I shall grant you a Hoshi no Tama, the star orb of my kin."
         - wait 1
-        - clickable yuna_accept save:yes
-        - clickable yuna_refuse save:no
+        - clickable yuna_accept save:yes until:2m
+        - clickable yuna_refuse save:no until:2m
         - narrate "<&7><element[<&lb><green>Yes<&7><&rb>].on_click[<entry[yes].command>]> <&7>or <element[<&lb><red>No<&7><&rb>].on_click[<entry[no].command>]>"
 
 yuna_accept:

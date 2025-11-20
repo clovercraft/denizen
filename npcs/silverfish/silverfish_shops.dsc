@@ -17,8 +17,8 @@ nikto_shop:
             - stop
         - else:
             - narrate "Sherds? Or.. Buds?"
-            - clickable silverfish_sherds save:sherds
-            - clickable silverfish_buds save:buds
+            - clickable silverfish_sherds save:sherds until:2m
+            - clickable silverfish_buds save:buds until:2m
             - narrate "<&7><element[<&lb><green>Sherds<&7><&rb>].on_click[<entry[sherds].command>]> <&7>or <element[<&lb><green>Buds<&7><&rb>].on_click[<entry[buds].command>]>"
 
 silverfish_sherds:
