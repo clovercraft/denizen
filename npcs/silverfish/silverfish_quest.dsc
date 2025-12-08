@@ -42,7 +42,7 @@ nikto_interact:
                     - flag player silverfish_quest_complete:1
                     - stop
             - if <player.has_flag[silverfish_quest_3]>:
-                - narrate "<bold>Nikto:<reset> Varada now Barada, easy change. I's joyous that he's safe. I's thank <player.name> for spreading knowings of this."
+                - narrate "<bold>Nikto:<reset> I's joyous that Barada's safe. I's thank <player.name> for spreading knowings of this."
                 - wait 1s
                 - narrate "<bold>Nikto:<reset> I's always knowing Barada desired to leave the many minds. Joyous he was able to do so."
                 - wait 1s
@@ -117,7 +117,7 @@ klaatu_interact:
             - narrate "<&7>Head West to the Sea, find a stony cliff."
             - stop
         - if <player.has_flag[silverfish_quest_3]>:
-            - narrate "<bold>Klaatu:<reset> <player.name> knowings is wrong. Varada will return later. Just wait, <player.name>, I's knowing is true."
+            - narrate "<bold>Klaatu:<reset> <player.name> knowings is wrong. Barada will return later. Just wait, <player.name>, I's knowing is true."
             - wait 1s
             - narrate "<bold>Klaatu:<reset> Go tell Nikto, <player.name>."
             - wait 1s
@@ -142,13 +142,13 @@ klaatu_quest_2:
     script:
         - narrate "<bold>Klaatu:<reset> I thank <player.name>. I thank Nikto."
         - wait 1s
-        - narrate "<bold>Klaatu:<reset> Varada, We's brother, thought smart to go look for new things outside caves."
+        - narrate "<bold>Klaatu:<reset> Barada, We's brother, thought smart to go look for new things outside caves."
         - wait 1s
         - narrate "<bold>Klaatu:<reset> I no convince him no to go."
         - wait 1s
-        - narrate "<bold>Klaatu:<reset> Varada is stubborn, he go even with knowledge of I's disapproval."
+        - narrate "<bold>Klaatu:<reset> Barada is stubborn, he go even with knowledge of I's disapproval."
         - wait 2s
-        - narrate "<bold>Klaatu:<reset> Varada said he knowledge of a biped, but not like <player.name> type. More different."
+        - narrate "<bold>Klaatu:<reset> Barada said he knowledge of a biped, but not like <player.name> type. More different."
         - narrate "<&7>Klaatu points to the West."
         - wait 1s
         - narrate "<bold>Klaatu:<reset> arada go that way. Out of cave. Where air is salty, where wall of stone meets water, and there is weird place. Place where bipeds put dead into ground."
@@ -174,11 +174,8 @@ barada_interact:
             - wait 2s
             - narrate "<bold>Barada:<reset> I knowledge here is greater than stone. I knowledge here, mind is free. I is just I."
             - wait 2s
-            - narrate "<bold>Barada:<reset> I... is just I."
+            - narrate "<bold>Barada:<reset> I... is just I now, none others."
             - wait 2s
-            - narrate "<bold><player.name>:<reset> Wait, you're brothers are Klaatu & Nikto? Have you seen or heard from Varada?"
-            - wait 1s
-            - narrate "<bold>Barada:<reset> Varada I was. Barada I am now."
             - flag player silverfish_quest_1:!
             - flag player silverfish_quest_2:!
             - flag player silverfish_quest_3:1
