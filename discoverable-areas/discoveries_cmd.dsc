@@ -6,6 +6,18 @@ cc_discoveries_cmd:
     script:
         - inventory open destination:cc_discoveries_inventory
 
+cc_discoveries_reset_cmd:
+    type: command
+    name: resetdiscoveries
+    description: Resets all player discovery flags
+    usage: /resetdiscoveries
+    permission: cc.debug
+    script:
+        - clickable save:confirm:
+            - flag player discovered_areas:!
+            - narrate "<red>All discoveries cleared"
+        - narrate "<red>Please confirm clearing all discoveries for <reset><player.display_name><red>? [<green><element[Confirm].on_click[<entry[confirm].command>]><red>]"
+
 cc_discoveries_inventory:
     type: inventory
     inventory: GENERIC
@@ -14,9 +26,13 @@ cc_discoveries_inventory:
     gui: true
     procedural items:
         - define list <list>
-        - define areas <proc[cc_discoverable_areas_get_player_discoveries].context[<player>]>
+        - define areas_discovered <proc[cc_discoverable_areas_get_player_discoveries].context[<player>]>
+        - define areas <script[cc_discoverable_areas_list].data_key[index]>
         - foreach <[areas]> as:area:
-            - define area_item <script[cc_discoverable_areas_list].data_key[<[area]>.icon_item]>
+            - if <[areas_discovered].contains[<[area]>]>:
+                - define area_item <script[cc_discoverable_areas_list].data_key[<[area]>.icon_item]>
+            - else:
+                - define area_item <item[cc_discoverable_areas_undiscovered_icon]>
             - define list <[list].include[<[area_item]>]>
         - determine <[list]>
     slots:
@@ -38,7 +54,11 @@ cc_discoveries_click_moreinfo:
     type: task
     definitions: __player|item
     script:
-        - narrate "more info"
+        - if <[item].has_flag[area].not>:
+            - stop
+        - define area_name <[item].flag[area]>
+        - define area_description <script[cc_discoverable_areas_list].data_key[<[area_name]>.description]>
+        - narrate <[area_description]>
 
 cc_discoveries_click_teleport:
     type: task
