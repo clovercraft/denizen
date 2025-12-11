@@ -14,6 +14,7 @@ cc_discoverable_areas:
             - run cc_discoverable_areas_on_discover def:<player>|abandoned_village
         after player enters fytari_groveheart:
             - run cc_discoverable_areas_on_discover def:<player>|fytari_groveheart
+            - run fytari_area_effects
         after player enters the_monastery:
             - run cc_discoverable_areas_on_discover def:<player>|the_monastery
         after player enters abandoned_fort:
