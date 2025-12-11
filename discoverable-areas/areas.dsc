@@ -62,7 +62,7 @@ cc_discoverable_areas_undiscovered_icon:
 
 cc_discoverable_areas_meagles_icon:
     type: item
-    material: paper
+    material: feather
     allow in material recipes: false
     display name: <green>Magpie Eagle Nests
     lore:
