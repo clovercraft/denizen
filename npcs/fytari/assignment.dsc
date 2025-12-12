@@ -11,7 +11,7 @@ fytari_talk:
     script:
         - random:
             - narrate "<bold><npc.name><reset>: <green><magic>Hello friend!"
-            - narrate "<bold><npc.name><reset>: <gold><magic>are you friend? You bring trades?"
+            - narrate "<bold><npc.name><reset>: <gold><magic>Are you friend? You bring trades?"
             - narrate "<bold><npc.name><reset>: <green><magic>Are you travels good?"
             - narrate "<bold><npc.name><reset>: <green><magic>Is a good day in the tree!"
             - narrate "<bold><npc.name><reset>: <dark_purple><magic>The druids magic bless you"
