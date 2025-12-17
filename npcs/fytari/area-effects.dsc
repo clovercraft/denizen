@@ -1,8 +1,9 @@
 fytari_area_effects:
     type: task
     script:
-        - define fytari_core l@-3118,142,131,world
-        - while <player.location.distance[<[fytari_core]>].horizontal.is_less_than_or_equal_to[50]>:
-            - cast damage_resistance duration:15s hide_particles:true
-            - cast regeneration duration:15s hide_particles:true
-            - wait 14s
+        - if <player.has_flag[fytari_blessing]>:
+            - narrate "<gray>The blessing of the Fytari may only be granted once per day"
+            - stop
+        - flag player fytari_blessing:1 expire:20m
+        - cast damage_resistance duration:15m hide_particles:true
+        - cast regeneration duration:15m hide_particles:true
