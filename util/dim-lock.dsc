@@ -21,8 +21,10 @@ cc_dimension_lock_toggle:
         - define toggle <context.args.get[1]>
         - if <[toggle]> == off:
             - flag server end_open:true
+            - narrate "Disabled dimension lock"
             - stop
         - if <[toggle]> == on:
             - flag server end_open:!
+            - narrate "Enabled dimension lock"
             - stop
         - narrate "You must provide either ON or OFF setting"
