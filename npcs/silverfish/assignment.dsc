@@ -44,31 +44,18 @@ szisquh_interact:
                 - flag player szisquh_cooldown:1 expire:7d
                 - stop
 
-silverfish_collective_assign:
-    type: assignment
-    actions:
-        on assignment:
-        - trigger name:proximity state:true
-    interact scripts:
-    - 10 silverfish_collective_interact
-
-silverfish_collective_interact:
-    type: interact
-    steps:
-        1:
-            proximity trigger:
-                entry:
-                    script:
-                        - if <player.has_flag[silverfish_visit_cooldown]> or <player.has_flag[silverfish_familiar]>:
-                            - stop
-                        - if <player.flag[silverfish_visits]> >= 2:
-                            - flag player silverfish_visits:3
-                            - flag player silverfish_familiar:1
-                            - stop
-                        - else:
-                            - flag player silverfish_visit_cooldown:1 expire:12h
-                            - flag player silverfish_visits:++
-
+silverfish_collective_prox_update:
+    type: task
+    script:
+        - if <player.has_flag[silverfish_visit_cooldown]> or <player.has_flag[silverfish_familiar]>:
+            - stop
+        - if <player.flag[silverfish_visits]> >= 2:
+            - flag player silverfish_visits:3
+            - flag player silverfish_familiar:1
+            - stop
+        - else:
+            - flag player silverfish_visit_cooldown:1 expire:12h
+            - flag player silverfish_visits:++
 
 szisquh_debug:
     type: command
