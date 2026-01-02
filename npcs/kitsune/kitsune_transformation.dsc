@@ -42,7 +42,7 @@ kitsune_ears:
     - vanishing_curse:1
     mechanisms:
         hides: all
-        custom_model_data: 1004
+        custom_model_data: 1015
         attribute_modifiers:
             generic_armor:
                 1:
@@ -50,5 +50,14 @@ kitsune_ears:
                     amount: 5
                     slot: head
 
-
+kitsune_remove:
+    type: command
+    description: Kitsune Remove
+    permission: cc.kitsuneremove
+    name: kitsuneremove
+    usage: /kitsuneremove
+    script:
+        - narrate "You have removed your Kitsune Ears.  Visit Yuna to aquire another Hoshi no Tama."
+        - equip <player> head:air
+        - stop
 
